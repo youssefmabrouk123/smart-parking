@@ -121,12 +121,19 @@ Follow these steps to set up **Smart Parking** locally:
 
 ## Technologies
 -Welcome Page: Vibrant hero section with "Sign In" or "Sign Up" options.
+
 -Sign Up: Create an account with name, email, and password.
+
 -Sign In: Log in to access the dashboard.
+
 -Dashboard: View parking spaces (🟢 free, 🔴 occupied). Click a free space to reserve.
+
 -Reservation: Select duration (1–24 hours), confirm, and receive a QR code.
+
 -Profile: Check account details (name, email, join date).
+
 -History: Review reservation history with space numbers, times, and statuses.
+
 -Logout: Sign out securely from the navigation bar.
 
 ## 📂 Project Structure
@@ -167,21 +174,31 @@ smart-parking/
   ```
 
 -app.py: Main Flask app with configuration and routes.
+
 -config.py: Database and secret key settings.
+
 -models.py: Database models for users, spaces, and reservations.
+
 -routes/: Modularized routes for auth, parking, and profile.
+
 -templates/: Jinja2 templates for HTML rendering.
+
 -static/: CSS, JS, and images for frontend.
+
 -init_db.sql: SQL script to initialize the database.
 
 ## 🗄️ Database Setup
 The application uses a MySQL database with three tables:
 
 -users: Stores user details (id, name, email, password, created_at).
+
 -parking_spaces: Defines spaces (id, space_number, location).
--reservations: Tracks reservations (id, user_id, space_id, start_time, end_time, created_at).  
+
+-reservations: Tracks reservations (id, user_id, space_id, start_time, end_time, created_at).
+
 ### Setup Steps
 -Run init_db.sql to create the schema and seed 15 parking spaces (A1–A5, B1–B5, C1–C5).
+
 -Verify tables:
  ```bash
 USE smart_parking;
