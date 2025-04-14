@@ -2,52 +2,48 @@
 {% block title %}Smart Parking | Find & Reserve Parking Spots Instantly{% endblock %}
 {% block content %}
 <!-- Hero Section -->
-<div class="hero-section min-vh-100 d-flex align-items-center position-relative">
-    <!-- Animated Background Shapes -->
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
-    <div class="shape shape-3"></div>
+<section class="hero-section min-vh-100 d-flex align-items-center position-relative">
+    <!-- Animated Background Elements -->
+    <div class="hero-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
     
     <div class="container py-5">
         <div class="row align-items-center">
             <!-- Left Content Column -->
             <div class="col-lg-6 mb-5 mb-lg-0 hero-content">
-                <span class="badge bg-white text-primary px-3 py-2 mb-3 animate__animated animate__fadeInDown">
+                <div class="hero-tag animate__animated animate__fadeInDown">
                     <i class="fas fa-parking me-1"></i> Smart Urban Solution
-                </span>
-                <h1 class="display-3 fw-bold text-white mb-4 animate__animated animate__fadeInUp">
-                    Making <span class="text-highlight">Parking</span> Simple &amp; Stress-free
+                </div>
+                <h1 class="hero-title animate__animated animate__fadeInUp">
+                    Stress-free <span class="text-highlight">Parking</span> in Just a Few Taps
                 </h1>
-                <p class="lead text-light mb-5 animate__animated animate__fadeInUp animate__delay-1s">
-                    Experience hassle-free parking with our intelligent solution. Find available spots in real-time, reserve with a tap, and navigate directly to your spot.
+                <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">
+                    Find, reserve, and navigate to available parking spots in real-time with our intelligent parking solution.
                 </p>
-                <div class="d-flex flex-wrap gap-3 animate__animated animate__fadeInUp animate__delay-2s">
-                    <a href="{{ url_for('auth.signin') }}" class="btn btn-glow btn-lg px-5 py-3">
+                <div class="hero-cta animate__animated animate__fadeInUp animate__delay-2s">
+                    <a href="{{ url_for('auth.signin') }}" class="btn btn-primary btn-lg">
                         <i class="fas fa-sign-in-alt me-2"></i> Sign In
                     </a>
-                    <a href="{{ url_for('auth.signup') }}" class="btn btn-outline-light btn-lg px-5 py-3">
+                    <a href="{{ url_for('auth.signup') }}" class="btn btn-outline-light btn-lg">
                         <i class="fas fa-user-plus me-2"></i> Sign Up
                     </a>
                 </div>
                 
                 <!-- Trust Indicators -->
-                <div class="trust-indicators d-flex flex-wrap gap-4 mt-5 animate__animated animate__fadeIn animate__delay-3s">
-                    <div class="trust-item d-flex align-items-center">
-                        <div class="trust-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <span>SSL Secured</span>
+                <div class="trust-indicators animate__animated animate__fadeIn animate__delay-3s">
+                    <div class="trust-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure Platform</span>
                     </div>
-                    <div class="trust-item d-flex align-items-center">
-                        <div class="trust-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <span>10k+ Users</span>
+                    <div class="trust-item">
+                        <i class="fas fa-users"></i>
+                        <span>10,000+ Users</span>
                     </div>
-                    <div class="trust-item d-flex align-items-center">
-                        <div class="trust-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
+                    <div class="trust-item">
+                        <i class="fas fa-star"></i>
                         <span>4.8/5 Rating</span>
                     </div>
                 </div>
@@ -55,70 +51,53 @@
             
             <!-- Right Content Column -->
             <div class="col-lg-6">
-                <div class="card feature-card border-0 shadow-lg animate__animated animate__fadeInRight">
-                    <div class="card-body p-lg-5 p-4">
-                        <div class="text-center mb-5 position-relative parking-img-container">
-                            <div class="floating-badge">
-                                <span>New</span>
-                            </div>
-                            <img src="{{ url_for('static', filename='images/parking_layout.png') }}" alt="Smart Parking Layout" class="img-fluid rounded">
-                            <div class="pulse-dot pulse-dot-1"></div>
-                            <div class="pulse-dot pulse-dot-2"></div>
-                            <div class="pulse-dot pulse-dot-3"></div>
-                        </div>
+                <div class="feature-card animate__animated animate__fadeInRight">
+                    <div class="feature-card-body">
                         
-                        <h3 class="fw-bold text-center mb-4">Experience Next-Gen Parking</h3>
                         
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="feature-item d-flex align-items-center p-3 rounded-4">
-                                    <div class="feature-icon me-3">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="fw-bold mb-1">Real-time Updates</h5>
-                                        <p class="mb-0 text-muted">Live availability tracking</p>
-                                    </div>
+                        <h3 class="feature-card-title">Smart Parking Features</h3>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h5>Real-time Updates</h5>
+                                    <p>Live availability tracking</p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="feature-item d-flex align-items-center p-3 rounded-4">
-                                    <div class="feature-icon me-3">
-                                        <i class="fas fa-qrcode"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="fw-bold mb-1">QR Code Entry</h5>
-                                        <p class="mb-0 text-muted">Contactless access</p>
-                                    </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-qrcode"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h5>QR Code Access</h5>
+                                    <p>Contactless entry</p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="feature-item d-flex align-items-center p-3 rounded-4">
-                                    <div class="feature-icon me-3">
-                                        <i class="fas fa-clock"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="fw-bold mb-1">Quick Booking</h5>
-                                        <p class="mb-0 text-muted">Under 30 seconds</p>
-                                    </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h5>Quick Booking</h5>
+                                    <p>Under 30 seconds</p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="feature-item d-flex align-items-center p-3 rounded-4">
-                                    <div class="feature-icon me-3">
-                                        <i class="fas fa-mobile-alt"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="fw-bold mb-1">Mobile First</h5>
-                                        <p class="mb-0 text-muted">Works on any device</p>
-                                    </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h5>Mobile Friendly</h5>
+                                    <p>Works on any device</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Call To Action -->
-                        <div class="text-center mt-5">
-                            <a href="#" class="btn btn-primary-light btn-lg px-5 py-3 d-inline-flex align-items-center">
+                        <div class="feature-cta">
+                            <a href="#" class="btn btn-secondary">
                                 <span>Take a Tour</span>
                                 <i class="fas fa-arrow-right ms-2"></i>
                             </a>
@@ -129,60 +108,65 @@
         </div>
     </div>
     
-    <!-- Wave SVG Effect -->
-    <div class="wave-container">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="wave">
-            <path fill="#ffffff" fill-opacity="1" d="M0,224L60,229.3C120,235,240,245,360,250.7C480,256,600,256,720,234.7C840,213,960,171,1080,176C1200,181,1320,235,1380,261.3L1440,288L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+    <!-- Wave Transition -->
+    <div class="wave-transition">
+        <svg viewBox="40 50 -1440 -90" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,64L60,74.7C120,85,240,107,360,112C480,117,600,107,720,96C840,85,960,75,1080,80C1200,85,1320,107,1380,117.3L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" fill="#ffffff"></path>
         </svg>
     </div>
-</div>
+</section>
 {% endblock %}
 
 {% block extra_css %}
 <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* General Styles */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* ============= Base Styles ============= */
+:root {
+    --primary: #4361ee;
+    --primary-dark: #3a56d4;
+    --secondary: #7209b7;
+    --white: #ffffff;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --text-light: rgba(255, 255, 255, 0.9);
+    --text-muted: #6c757d;
+    --border-radius: 12px;
+    --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
 
 body {
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
+    line-height: 1.6;
+    color: var(--dark);
 }
 
-/* Hero Section */
+/* ============= Hero Section ============= */
 .hero-section {
-    background: linear-gradient(135deg, #4361ee, #7209b7);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     position: relative;
     overflow: hidden;
-    padding: 120px 0;
+    padding: 100px 0;
     z-index: 1;
 }
 
-/* Text Highlight Effect */
-.text-highlight {
-    position: relative;
-    color: #ffffff;
-    display: inline-block;
-}
-
-.text-highlight::after {
-    content: '';
+.hero-shapes {
     position: absolute;
     width: 100%;
-    height: 30%;
-    bottom: 8px;
+    height: 100%;
+    top: 0;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.2);
     z-index: -1;
-    border-radius: 4px;
 }
 
-/* Animated Background Shapes */
 .shape {
     position: absolute;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
     animation: float 8s infinite ease-in-out;
+    filter: blur(1px);
 }
 
 .shape-1 {
@@ -190,7 +174,6 @@ body {
     height: 300px;
     top: -150px;
     right: -100px;
-    animation-delay: 0s;
 }
 
 .shape-2 {
@@ -210,282 +193,332 @@ body {
 }
 
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-20px) rotate(10deg);
-    }
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
 }
 
-/* Wave Effect */
-.wave-container {
+/* Hero Content */
+.hero-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.text-highlight {
+    position: relative;
+    display: inline-block;
+}
+
+.text-highlight::after {
+    content: '';
     position: absolute;
-    bottom: 0;
+    width: 100%;
+    height: 12px;
+    bottom: 8px;
     left: 0;
-    width: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: -1;
+    border-radius: 4px;
+    transform: skewX(-15deg);
 }
 
-.wave {
-    animation: wave-animation 3s ease-in-out infinite alternate;
-    width: 100%;
-    height: auto;
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    max-width: 90%;
 }
 
-@keyframes wave-animation {
-    0% {
-        transform: translateX(-25px);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-
-/* Button Styles */
+/* Buttons */
 .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
     border-radius: 50px;
     font-weight: 600;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: var(--transition);
+    border: 2px solid transparent;
 }
 
-.btn-glow {
-    background: #ffffff;
-    color: #4361ee;
-    border: none;
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+.btn-lg {
+    padding: 14px 28px;
+    font-size: 1.1rem;
 }
 
-.btn-glow:hover {
-    background: #f8f9fa;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.6);
-    color: #7209b7;
+.btn-primary {
+    background: var(--white);
+    color: var(--primary);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+    color: var(--primary-dark);
 }
 
 .btn-outline-light {
-    border: 2px solid #ffffff;
-    color: #ffffff;
+    border-color: var(--white);
+    color: var(--white);
+    background: transparent;
 }
 
 .btn-outline-light:hover {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
-    color: #ffffff;
-    transform: translateY(-5px);
-}
-
-.btn-primary-light {
-    background: rgba(67, 97, 238, 0.1);
-    color: #4361ee;
-    border: none;
-    transition: all 0.3s ease;
-}
-
-.btn-primary-light:hover {
-    background: rgba(67, 97, 238, 0.2);
     transform: translateY(-3px);
-    color: #4361ee;
 }
 
-/* Feature Card */
-.feature-card {
-    border-radius: 24px;
-    overflow: hidden;
-    transform: translateZ(0);
-    backdrop-filter: blur(10px);
-    transition: all 0.4s ease;
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.feature-card:hover {
-    transform: translateY(-10px);
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
 }
 
-/* Feature Items */
-.feature-item {
-    background: rgba(243, 244, 246, 0.5);
-    border: 1px solid rgba(243, 244, 246, 0.8);
-    transition: all 0.3s ease;
-}
-
-.feature-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    background: #ffffff;
-}
-
-.feature-icon {
-    width: 50px;
-    height: 50px;
+.hero-cta {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    background: linear-gradient(135deg, #4361ee, #7209b7);
-    color: white;
-    border-radius: 12px;
+    gap: 15px;
+    margin-bottom: 40px;
 }
 
 /* Trust Indicators */
 .trust-indicators {
-    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
 .trust-item {
-    font-size: 0.9rem;
-}
-
-.trust-icon {
-    width: 28px;
-    height: 28px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.trust-item i {
     margin-right: 8px;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
 }
 
-/* Parking Image Container */
-.parking-img-container {
-    position: relative;
+/* Feature Card */
+.feature-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     overflow: hidden;
-    border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.parking-img-container img {
-    transition: all 0.8s ease;
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1));
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-.feature-card:hover .parking-img-container img {
+.feature-card-body {
+    padding: 30px;
+}
+
+.feature-image-container {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.8s ease;
+}
+
+.feature-card:hover .feature-image {
     transform: scale(1.03);
 }
 
-/* Floating Badge */
-.floating-badge {
+.feature-badge {
     position: absolute;
     top: 15px;
     right: 15px;
-    background: linear-gradient(135deg, #4361ee, #7209b7);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 30px;
-    font-size: 0.8rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--white);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
     font-weight: 600;
-    z-index: 10;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
     animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    50% {
-        transform: scale(1.05);
-        box-shadow: 0 5px 20px rgba(67, 97, 238, 0.3);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-}
-
-/* Pulse Dots */
-.pulse-dot {
-    width: 15px;
-    height: 15px;
-    background-color: #4361ee;
-    border-radius: 50%;
+.availability-indicator {
     position: absolute;
-    z-index: 10;
+    width: 14px;
+    height: 14px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    z-index: 1;
 }
 
-.pulse-dot::after {
+.availability-indicator::after {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    background-color: #4361ee;
+    background-color: var(--primary);
     border-radius: 50%;
     animation: pulse-animation 2s infinite;
-}
-
-.pulse-dot-1 {
-    top: 30%;
-    left: 25%;
-}
-
-.pulse-dot-2 {
-    top: 65%;
-    left: 60%;
-}
-
-.pulse-dot-3 {
-    top: 40%;
-    right: 20%;
-    animation-delay: 1s;
+    opacity: 0.7;
 }
 
 @keyframes pulse-animation {
-    0% {
-        transform: scale(1);
-        opacity: 1;
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.feature-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--dark);
+}
+
+/* Feature Grid */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    background: var(--light);
+    transition: var(--transition);
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    background: var(--white);
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--white);
+    border-radius: var(--border-radius);
+    margin-right: 15px;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.feature-text h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--dark);
+}
+
+.feature-text p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+.feature-cta {
+    text-align: center;
+}
+
+/* Wave Transition */
+.wave-transition {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    /* width: 200%; */
+    height: 200px;
+    overflow: hidden;
+}
+
+.wave-transition svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    animation: wave-animation 10s linear infinite;
+}
+
+@keyframes wave-animation {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-8%); }
+    100% { transform: translateX(0); }
+}
+
+/* ============= Responsive Adjustments ============= */
+@media (max-width: 1199px) {
+    .hero-title {
+        font-size: 2.5rem;
     }
-    100% {
-        transform: scale(3);
-        opacity: 0;
-    }
 }
 
-/* Animation Delays for Content */
-.hero-content > *:nth-child(1) {
-    animation-delay: 0.2s;
-}
-
-.hero-content > *:nth-child(2) {
-    animation-delay: 0.4s;
-}
-
-.hero-content > *:nth-child(3) {
-    animation-delay: 0.6s;
-}
-
-.hero-content > *:nth-child(4) {
-    animation-delay: 0.8s;
-}
-
-/* Responsive Adjustments */
 @media (max-width: 991px) {
     .hero-section {
         padding: 80px 0;
     }
     
-    .display-3 {
-        font-size: 2.8rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero-section {
-        padding: 60px 0;
-    }
-    
-    .display-3 {
+    .hero-title {
         font-size: 2.2rem;
     }
     
-    .card-body {
-        padding: 2rem;
+    .hero-subtitle {
+        font-size: 1.1rem;
     }
     
-    .feature-item {
-        margin-bottom: 0.5rem;
+    .feature-grid {
+        grid-template-columns: 1fr;
     }
     
     .trust-indicators {
@@ -493,22 +526,53 @@ body {
     }
 }
 
-@media (max-width: 576px) {
-    .display-3 {
+@media (max-width: 767px) {
+    .hero-section {
+        padding: 60px 0 80px;
+        text-align: center;
+    }
+    
+    .hero-title {
         font-size: 1.8rem;
     }
     
-    .lead {
-        font-size: 1rem;
+    .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
     }
     
     .btn {
         width: 100%;
-        margin-bottom: 0.5rem;
+        max-width: 250px;
     }
     
     .trust-indicators {
-        justify-content: space-around;
+        justify-content: center;
+    }
+    
+    .feature-card {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 575px) {
+    .hero-title {
+        font-size: 1.6rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .trust-indicators {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
     }
 }
 </style>
