@@ -108,7 +108,7 @@ Follow these steps to set up **Smart Parking** locally:
     app.config['MYSQL_USER'] = 'your_username'
     app.config['MYSQL_PASSWORD'] = 'your_password'
     ```
-5. **Add Static Assets **:
+5. **Add Static Assets**:
     -Place parking_layout.png and logo.png in static/images/.
     -Ensure static/css/main.css and static/js/main.js are in place.
    
