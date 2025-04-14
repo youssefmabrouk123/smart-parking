@@ -129,7 +129,7 @@ Follow these steps to set up **Smart Parking** locally:
 -History: Review reservation history with space numbers, times, and statuses.
 -Logout: Sign out securely from the navigation bar.
 
-##📂 Project Structure
+## 📂 Project Structure
   ```bash
 smart-parking/
 ├── static/
@@ -174,7 +174,7 @@ smart-parking/
 -static/: CSS, JS, and images for frontend.
 -init_db.sql: SQL script to initialize the database.
 
-##🗄️ Database Setup
+## 🗄️ Database Setup
 The application uses a MySQL database with three tables:
 
 -users: Stores user details (id, name, email, password, created_at).
@@ -188,7 +188,7 @@ USE smart_parking;
 SHOW TABLES;
 SELECT * FROM parking_spaces;
  ```
-##🤝 Contributing
+## 🤝 Contributing
 Contributions are welcome! To contribute:
 1. Fork the repository.
 2. Create a feature branch:
@@ -206,10 +206,10 @@ git push origin feature/your-feature
 5. Open a Pull Request with a clear description.
 Please follow the code style, write tests if applicable, and ensure no existing functionality breaks.
 
-##📜 License
+## 📜 License
 This project is licensed under the MIT License. See  for details.
-
-##📬 Contact
+ 
+## 📬 Contact
 For questions or feedback:
 
 GitHub: youssefmabrouk123
