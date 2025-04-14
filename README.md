@@ -213,8 +213,8 @@ This project is licensed under the MIT License. See  for details.
 For questions or feedback:
 
 GitHub: youssefmabrouk123
-Email: mabroukyoussef10@gmail.com
-Thank you for exploring Smart Parking! 🚗✨
+*Email: mabroukyoussef10@gmail.com
+*Thank you for exploring Smart Parking! 🚗✨
 
 
 
