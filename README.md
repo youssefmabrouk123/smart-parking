@@ -232,6 +232,7 @@ For questions or feedback:
 -GitHub: youssefmabrouk123
 
 -Email: mabroukyoussef10@gmail.com
+
 Thank you for exploring Smart Parking! 🚗✨
 
 
