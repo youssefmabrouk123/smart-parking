@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block title %}Reservation - Smart Parking{% endblock %}
+{% block content %}
+<div class="row justify-content-center min-vh-100 py-5">
+    <div class="col-md-8 col-lg-6">
+        {% if reservation_id %}
+            <div class="card shadow-lg">
+                <div class="card-header bg-success text-white text-center">
+                    <h3 class="mb-0">Reservation Confirmed</h3>
+                </div>
+                <div class="card-body p-5">
+                    <div class="text-center mb-5">
+                        <i class="fas fa-check-circle text-success" style="font-size: 6rem;"></i>
+                    </div>
+                    <div class="reservation-details p-4 bg-light rounded-3 mb-5">
+                        <div class="row mb-3">
+                            <div class="col-5 fw-medium text-muted">Reservation ID:</div>
+                            <div class="col-7 fw-bold">{{ reservation_id }}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-5 fw-medium text-muted">Parking Space:</div>
+                            <div class="col-7 fw-bold">{{ space_number }}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-5 fw-medium text-muted">Start Time:</div>
+                            <div class="col-7">{{ start_time.strftime('%Y-%m-%d %H:%M') }}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-5 fw-medium text-muted">End Time:</div>
+                            <div class="col-7">{{ end_time.strftime('%Y-%m-%d %H:%M') }}</div>
+                        </div>
+                    </div>
+                    <div class="qr-container text-center mb-5">
+                        <h4 class="mb-4 fw-bold">Your QR Code</h4>
+                        <div class="qr-code-box mx-auto p-3 bg-white border rounded-3">
+                            <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code" class="img-fluid" style="max-width: 200px;">
+                        </div>
+                        <p class="text-muted mt-3">Scan this QR code at the parking entrance</p>
+                    </div>
+                    <div class="d-grid">
+                        <a href="{{ url_for('parking.dashboard') }}" class="btn btn-primary btn-lg">Back to Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Reserve Space #{{ space.space_number }}</h3>
+                </div>
+                <div class="card-body p-5">
+                    <form method="POST" action="{{ url_for('parking.reserve', space_id=space.id) }}">
+                        <div class="mb-4">
+                            <label for="hours" class="form-label fw-medium">Duration (hours)</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                <input type="number" class="form-control" id="hours" name="hours" min="1" max="24" value="1" required>
+                            </div>
+                            <div class="form-text">Maximum reservation time is 24 hours</div>
+                        </div>
+                        <div class="mb-5">
+                            <label class="form-label fw-medium">Selected Space</label>
+                            <div class="parking-space free">
+                                <span class="space-number">{{ space.space_number }}</span>
+                                <i class="fas fa-check-circle status-icon"></i>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-3">
+                            <button type="submit" class="btn btn-success btn-lg">Confirm Reservation</button>
+                            <a href="{{ url_for('parking.dashboard') }}" class="btn btn-outline-secondary btn-lg">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+{% block extra_css %}
+<style>
+.reservation-details {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+}
+
+.qr-code-box {
+    max-width: 250px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.parking-space {
+    height: 100px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.parking-space.free {
+    background: #dcfce7;
+    border: 2px solid #22c55e;
+}
+
+.space-number {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.status-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #22c55e;
+}
+
+@media (max-width: 768px) {
+    .parking-space {
+        height: 80px;
+    }
+    .space-number {
+        font-size: 1.3rem;
+    }
+}
+</style>
+{% endblock %}

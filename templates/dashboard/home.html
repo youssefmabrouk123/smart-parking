@@ -1,0 +1,238 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - Smart Parking{% endblock %}
+{% block content %}
+<div class="row mb-5">
+    <div class="col">
+        <h1 class="display-4 fw-bold">Welcome, {{ session.name }}</h1>
+        <p class="lead text-muted">Choose a parking space to reserve</p>
+    </div>
+</div>
+
+<div class="card shadow-lg mb-5">
+    <div class="card-header bg-primary text-white">
+        <h3 class="mb-0">Parking Lot</h3>
+    </div>
+    <div class="card-body p-5">
+        <div class="parking-layout">
+            <div class="row mb-4">
+                <div class="col-12 text-center">
+                    <div class="parking-entrance">
+                        <i class="fas fa-torii-gate me-2"></i> MAIN ENTRANCE
+                    </div>
+                </div>
+            </div>
+            
+            <div class="parking-map">
+                <div class="parking-row">
+                    {% for space in parking_spaces %}
+                        {% if space.space_number.startswith('A') %}
+                            <div class="parking-space-container">
+                                {% if space.status == 'free' %}
+                                    <a href="{{ url_for('parking.reserve', space_id=space.id) }}" class="parking-space free" title="Available">
+                                        <span class="space-number">{{ space.space_number }}</span>
+                                        <i class="fas fa-check-circle status-icon"></i>
+                                    </a>
+                                {% else %}
+                                    <div class="parking-space taken" title="Occupied">
+                                        <span class="space-number">{{ space.space_number }}</span>
+                                        <i class="fas fa-times-circle status-icon"></i>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="parking-aisle"></div>
+                <div class="parking-row">
+                    {% for space in parking_spaces %}
+                        {% if space.space_number.startswith('B') %}
+                            <div class="parking-space-container">
+                                {% if space.status == 'free' %}
+                                    <a href="{{ url_for('parking.reserve', space_id=space.id) }}" class="parking-space free" title="Available">
+                                        <span class="space-number">{{ space.space_number }}</span>
+                                        <i class="fas fa-check-circle status-icon"></i>
+                                    </a>
+                                {% else %}
+                                    <div class="parking-space taken" title="Occupied">
+                                        <span class="space-number">{{ space.space_number }}</span>
+                                        <i class="fas fa-times-circle status-icon"></i>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="parking-aisle"></div>
+                <div class="parking-row">
+                    {% for space in parking_spaces %}
+                        {% if space.space_number.startswith('C') %}
+                            <div class="parking-space-container">
+                                {% if space.status == 'free' %}
+                                    <a href="{{ url_for('parking.reserve', space_id=space.id) }}" class="parking-space free" title="Available">
+                                        <span class="space-number">{{ space.space_number }}</span>
+                                        <i class="fas fa-check-circle status-icon"></i>
+                                    </a>
+                                {% else %}
+                                    <div class="parking-space taken" title="Occupied">
+                                        <span class="space-number">{{ space.space_number }}</span>
+                                        <i class="fas fa-times-circle status-icon"></i>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <div class="legend">
+                        <div class="d-flex align-items-center me-4">
+                            <div class="legend-color free"></div>
+                            <span>Available</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="legend-color taken"></div>
+                            <span>Occupied</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block extra_css %}
+<style>
+.parking-layout {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.parking-entrance {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: 2px solid #e5e7eb;
+    color: #1f2937;
+}
+
+.parking-map {
+    background: #f1f5f9;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.parking-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.parking-space-container {
+    flex: 1;
+    margin: 0 5px;
+}
+
+.parking-space {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    border-radius: 10px;
+    position: relative;
+    text-decoration: none;
+    color: #1f2937;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.parking-space.free {
+    background: #dcfce7;
+    border-color: #22c55e;
+}
+
+.parking-space.free:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.parking-space.taken {
+    background: #fee2e2;
+    border-color: #ef4444;
+    cursor: not-allowed;
+}
+
+.space-number {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.status-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+}
+
+.parking-space.free .status-icon {
+    color: #22c55e;
+}
+
+.parking-space.taken .status-icon {
+    color: #ef4444;
+}
+
+.parking-aisle {
+    height: 30px;
+    background: repeating-linear-gradient(
+        45deg,
+        #facc15,
+        #facc15 10px,
+        #fefce8 10px,
+        #fefce8 20px
+    );
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.legend-color {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    border: 2px solid;
+}
+
+.legend-color.free {
+    background: #dcfce7;
+    border-color: #22c55e;
+}
+
+.legend-color.taken {
+    background: #fee2e2;
+    border-color: #ef4444;
+}
+
+@media (max-width: 768px) {
+    .parking-space {
+        height: 80px;
+    }
+    .space-number {
+        font-size: 1.2rem;
+    }
+    .parking-map {
+        padding: 10px;
+    }
+}
+</style>
+{% endblock %}
